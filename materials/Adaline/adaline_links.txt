@@ -1,0 +1,13 @@
+
+https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/2961012104553482/2761297084239426/1806228006848429/latest.html
+
+https://edisciplinas.usp.br/pluginfile.php/5265288/mod_resource/content/1/RNA_Aula04.pdf
+
+https://rpubs.com/FaiHas/199387
+
+https://github.com/tuanle618/MachineLearning_PredictiveModelling/blob/master/extra_ml/adaline.R
+
+https://pabloinsente.github.io/the-adaline
+
+* Pacote do R implementando Adaline
+https://rdrr.io/github/KaryFramling/inka/src/R/Adaline.R
