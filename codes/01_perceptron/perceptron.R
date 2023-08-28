@@ -12,6 +12,7 @@
 #    - lrn.rate: taxa de aprendizado, para ajuste sináptico
 #    - epochs: numero maximo de iterações para treinamento (caso não chaja convergência)
 # -------------------------------------------------------------------------------------------------
+
 perceptron.train = function(train.set, weights = NULL, lrn.rate = 0.3, n.iter = 1000) {
   
   epochs = 0
@@ -40,15 +41,14 @@ perceptron.train = function(train.set, weights = NULL, lrn.rate = 0.3, n.iter = 
     
     for(i in 1:nrow(train.set)) {
       
-      example  = as.numeric(train.set[i,])
+      example = as.numeric(train.set[i,])
       
       # spike
       x = example[-class.id]
       v = as.numeric(x %*% weights)
       
       # output
-      # it could also be:
-      y = ifelse(v >=0, +1, -1) # y = sign(v)
+      y = ifelse(v >=0, +1, -1)
       
       avgError = avgError + ((example[class.id] - y)^2)
       
@@ -73,20 +73,23 @@ perceptron.train = function(train.set, weights = NULL, lrn.rate = 0.3, n.iter = 
   return(obj)
 }
 
-# -----------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
+
 # Perceptron.test: avalia novos exemplos depois que o modelo foi treinado, 
 # usando os pesos sinápticos objetidos no treinamento
 #    - conjunto de teste
 #    - weights: são os pesos sinápticos obtidos no treinamento
-# -----------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
+
 
 perceptron.predict = function(test.set, weights) {
   
-  v = as.numeric(test.set %*% weights)
-  # it also works as: v = sum(test.set * weights)
+  v = sum(test.set * weights)
   y = ifelse(v>=0, +1, -1)
   return(y)
 }
 
-# -----------------------------------------------------------------
-# -----------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
