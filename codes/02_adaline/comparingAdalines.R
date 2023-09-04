@@ -25,24 +25,25 @@ dataset$class = ifelse(dataset$class == "Iris-setosa", +1, -1)
 # training adalineGD
 # -----------------------------------------------------------------
 
-model.gd  = adalineGD.train(dataset  = dataset, lrn.rate = 0.001,  n.iter = 1000)
-model.sgd = adalineSGD.train(dataset = dataset, lrn.rate = 0.001,  n.iter = 1000)
+model.gd  = adalineGD.train(dataset  = dataset, lrn.rate = 0.001, n.iter = 1000)
+model.sgd = adalineSGD.train(dataset = dataset, lrn.rate = 0.001, n.iter = 1000)
 
 # -----------------------------------------------------------------
 # comparing convergence  between GD x SGD
 # -----------------------------------------------------------------
 
-df = data.frame(1:model.gd$epochs, model.gd$cost, model.sgd$cost)
+df = data.frame(1:model.gd$epochs, model.gd$error, model.sgd$error)
 colnames(df) = c("epoch", "GD.001", "SGD.001")
 
 df = melt(df, id.vars = 1)
 g = ggplot(df, mapping = aes(x = epoch, y = (value), group = variable,
   colour = variable, shape = variable))
 g = g + geom_line() + geom_point()
-ggsave(g, file = "adaline_cost_comparisons.jpg", width = 7.1, height = 3.5)
+ggsave(g, file = "adaline_error_comparisons.jpg", width = 7.1, height = 3.5)
 
 g = g + scale_x_continuous(limit = c(1, 25))
-ggsave(g, file = "adaline_cost_comparisons_scaled.jpg", width = 7.1, height = 3.5)
+ggsave(g, file = "adaline_error_comparisons_scaled.jpg", width = 7.1, 
+  height = 3.5)
 
 # -----------------------------------------------------------------
 # comparing different learning rates for GD
@@ -60,10 +61,12 @@ df = melt(df, id.vars = 1)
 g = ggplot(df, mapping = aes(x = epoch, y = (value), group = variable,
   colour = variable, shape = variable))
 g = g + geom_line() + geom_point()
-ggsave(g, file = "adaline_gd_convergence_comparisons.jpg", width = 7.1, height = 3.5)
+ggsave(g, file = "adaline_gd_convergence_comparisons.jpg", width = 7.1, 
+  height = 3.5)
 
 g = g + scale_x_continuous(limit = c(1, 200))
-ggsave(g, file = "adaline_gd_convergence_comparisons_scaled.jpg", width = 7.1, height = 3.5)
+ggsave(g, file = "adaline_gd_convergence_comparisons_scaled.jpg", 
+  width = 7.1, height = 3.5)
 
 # -----------------------------------------------------------------
 # comparing different learning rates for SGD
@@ -73,18 +76,20 @@ model.gd1m = adalineSGD.train(dataset  = dataset, lrn.rate = 0.0001, n.iter = 10
 model.gd1c = adalineSGD.train(dataset  = dataset, lrn.rate = 0.0005, n.iter = 1000)
 model.gd1d = adalineSGD.train(dataset  = dataset, lrn.rate = 0.001,  n.iter = 1000)
 
-df = data.frame(1:model.gd1m$epochs, model.gd1m$cost, model.gd1c$cost,
-  model.gd1d$cost)
+df = data.frame(1:model.gd1m$epochs, model.gd1m$error, model.gd1c$error,
+  model.gd1d$error)
 colnames(df) = c("epoch", "SGD.0001", "SGD.0005", "SGD.001")
 
 df = melt(df, id.vars = 1)
 g = ggplot(df, mapping = aes(x = epoch, y = (value), group = variable,
   colour = variable, shape = variable))
 g = g + geom_line() + geom_point()
-ggsave(g, file = "adaline_sgd_convergence_comparisons.jpg", width = 7.1, height = 3.5)
+ggsave(g, file = "adaline_sgd_convergence_comparisons.jpg", width = 7.1, 
+  height = 3.5)
 
 g = g + scale_x_continuous(limit = c(1, 200))
-ggsave(g, file = "adaline_sgd_convergence_comparisons_scaled.jpg", width = 7.1, height = 3.5)
+ggsave(g, file = "adaline_sgd_convergence_comparisons_scaled.jpg", width = 7.1, 
+  height = 3.5)
 
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
