@@ -37,7 +37,7 @@ g = ggplot(dataset, mapping = aes(x = sepalwidth, y = petalwidth,
   colour = class, shape = class))
 g = g + geom_point(size = 3) + theme_bw()
 
-slope     = -(w0/w2)/(w0/w1)
+slope     = -(w1/w2)
 intercept = -w0/w2
 
 g = g + geom_abline(intercept = intercept, slope = slope)
@@ -51,20 +51,20 @@ ggsave(g, file = paste0("adalineGD_hyperplane_",
 df = data.frame(1:obj$epochs, obj$error)
 
 # Ploting convergence
-colnames(df) = c("epoch", "Accuracy")
-g = ggplot(df, mapping = aes(x = epoch, y = Accuracy))
+colnames(df) = c("epoch", "Error")
+g = ggplot(df, mapping = aes(x = epoch, y = Error))
 g = g + geom_line() + geom_point()
 g = g + scale_x_continuous(limit = c(1, nrow(df)))
 ggsave(g, file = paste0("adalineGD_predErrors_", seed.value,".jpg"),
   width = 7.95, height = 3.02, dpi = 480)
 
 # Plotting the Cost function
-df = data.frame(1:obj$epochs, obj$cost)
-colnames(df) = c("epoch", "Cost")
-g = ggplot(df, mapping = aes(x = epoch, y = Cost))
+df = data.frame(1:obj$epochs, obj$misc)
+colnames(df) = c("epoch", "Miss")
+g = ggplot(df, mapping = aes(x = epoch, y = Miss))
 g = g + geom_line() + geom_point()
 g = g + scale_x_continuous(limit = c(1, nrow(df)))
-ggsave(g, file = paste0("adalineGD_cost_", seed.value,".jpg"),
+ggsave(g, file = paste0("adalineGD_Misclassifications_", seed.value,".jpg"),
   width = 7.95, height = 3.02, dpi = 480)
 
 # -----------------------------------------------------------------
