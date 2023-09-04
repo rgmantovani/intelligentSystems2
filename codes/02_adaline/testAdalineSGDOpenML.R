@@ -4,7 +4,7 @@
 library("ggplot2")
 # library(reshape2)
 
-source("../adalineSGD.R")
+source("./adalineSGD.R")
 
 seed.value = 42
 set.seed(seed.value)
@@ -66,7 +66,7 @@ colnames(df) = c("epoch", "Cost")
 g = ggplot(df, mapping = aes(x = epoch, y = Cost))
 g = g + geom_line() + geom_point()
 g = g + scale_x_continuous(limit = c(1, nrow(df)))
-ggsave(g, file = paste0("adalineSGD_cost_", seed.value,".jpg"),
+ggsave(g, file = paste0("adalineSGD_misclassifications_", seed.value,".jpg"),
   width = 7.95, height = 3.02, dpi = 480)
 
 # -----------------------------------------------------------------

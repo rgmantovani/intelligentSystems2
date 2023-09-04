@@ -26,12 +26,12 @@ adalineGD.train = function(dataset, n.iter = 100, lrn.rate = 0.0001,
   y = as.numeric(X[,class.id])
   X = as.matrix(X[,-class.id])
 
-  # TODO: create random weights [-0.5, 0.5]
-  w = as.matrix(rep(0, dim(X)[2]))
+  # generating random weights [-0.5, 0.5]
+  w = matrix(data = runif(n = ncol(dataset), min = -0.5, max = 0.5))
 
-  # initialize vector to keep track of cost and error function per epoch
-  cost  = rep(0, n.iter) # cost - sqaured error
-  error = rep(0, n.iter) # accuracy (right or wrong?)
+  # initialize vector to keep track of error and misc function per epoch
+  error = rep(0, n.iter)
+  misc  = rep(0, n.iter)
 
   # loop over the number of epochs
   for (n in 1:n.iter) {
@@ -52,18 +52,18 @@ adalineGD.train = function(dataset, n.iter = 100, lrn.rate = 0.0001,
       ypred[ypred < 0]  = -1
     }
 
-    error[n] = length(which(y != ypred))
-    cost[n] = sum((y - X %*% w)^2)/2
-    cat(" - cost: ", cost[n], " - error: ", error[n], "\n")
+    misc[n]  = length(which(y != ypred))
+    error[n] = sum((y - X %*% w)^2)/2
+    cat(" - error: ", error[n], " - misc: ", misc[n], "\n")
 
     # update weight according to gradient descent
     w = w + lrn.rate *t(X) %*% (y - X %*% w)
   }
 
   # returning the model
-  model = list(epochs = n.iter, cost = log(cost),
-    lrn.rate = lrn.rate, error = error, weights = w)
-
+  model = list(epochs = n.iter, misc = misc, lrn.rate = lrn.rate,
+    error = error, weights = w)
+  
   return(model)
 }
 
