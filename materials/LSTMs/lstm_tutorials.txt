@@ -1,0 +1,15 @@
+https://www.kaggle.com/code/amirrezaeian/time-series-data-analysis-using-lstm-tutorial
+
+https://www.kaggle.com/code/thebrownviking20/intro-to-recurrent-neural-networks-lstm-gru
+
+https://www.kaggle.com/code/faressayah/stock-market-analysis-prediction-using-lstm
+
+https://www.kaggle.com/code/kredy10/simple-lstm-for-text-classification
+
+https://www.kaggle.com/code/mrizwanse/time-series-forecasting-with-lstm-rnn
+
+https://www.kaggle.com/code/onurderya/time-series-forecasting-with-ann-lstm
+
+
+Atividade 02: LSTM + Human Activity Recognition
+https://www.kaggle.com/datasets/alirezasepidbar/lstmhumanactivityrecognition
