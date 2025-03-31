@@ -40,7 +40,7 @@ model = mlp.create(input.length = 4, hidden.length = 3,
 
 # training the MLP model
 obj = mlp.train(model = model, dataset = train.data, lrn.rate = 0.1,
-    threshold = 1e-2, n.iter = 10000)
+    threshold = 1e-2, n.iter = 500)
 
 # testing each example from the testing set
 aux = lapply(1:nrow(test.data), function(i) {

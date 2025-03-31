@@ -23,7 +23,7 @@ model = mlp.create(input.length = 2, hidden.length = 2,
 
 # defines the stopping criteria with and error < 0.001 and epochs < 100k
 obj = mlp.train(model = model, dataset = dataset, lrn.rate = 0.1,
-  threshold = 1e-2, n.iter = 100000)
+  threshold = 1e-2, n.iter = 500)
 
 # predicting the output of an example
 pred2 = mlp.test(model = obj$model, example = c(0,0))

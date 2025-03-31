@@ -5,7 +5,7 @@
 source("./perceptron.R")
 library("ggplot2")
 
-set.seed(24)
+#set.seed(24)
 
 # -------------------------------------------------------------------------------------------------
 # Getting iris dataset
