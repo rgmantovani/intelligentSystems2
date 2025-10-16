@@ -1,0 +1,10 @@
+CNNs tutorials
+
+covid xray: https://kaggle.com/competitions/cnn-hands-on-practice
+codig xray: https://www.kaggle.com/competitions/convolutional-neural-network-cnn-practice/data
+mnist: https://www.kaggle.com/code/kanncaa1/convolutional-neural-network-cnn-tutorial
+flower recognition: https://www.kaggle.com/code/rajmehra03/flower-recognition-cnn-keras
+cifar-10: https://www.kaggle.com/code/farzadnekouei/cifar-10-image-classification-with-cnn
+pneumonia: https://www.kaggle.com/code/madz2000/pneumonia-detection-using-cnn-92-6-accuracy
+bird recognition: https://www.kaggle.com/code/vencerlanz09/bird-classification-using-cnn-efficientnetb0
+mnist: https://www.kaggle.com/code/cdeotte/how-to-choose-cnn-architecture-mnist
